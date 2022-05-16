@@ -40,10 +40,13 @@ public class ProgressBar : MonoBehaviour
     }
 
     //Se llama desde el UIManager
-    public void setParameters(float seconds)
+    public void setParameters(float seconds,string abilityName)
     {
         //Establecemos el maximo
         max = seconds;
+
+        //Y nombramos la habilidad
+        GetComponentInChildren<Text>().text = abilityName;
     }
 
 }
