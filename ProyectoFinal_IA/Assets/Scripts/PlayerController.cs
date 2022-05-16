@@ -5,38 +5,33 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     bool input = true;
-    Rigidbody rb;
 
     [SerializeField]
     private float speed;
 
     float deltaX, deltaZ;
+    float horizontalCamera;
 
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    //Para las fisicas
-    private void FixedUpdate()
-    {
-        if (input)
-        {
-            rb.velocity = new Vector3(deltaX, 0, deltaZ);
-        }
-    }
 
 
     void Update()
     {
         //Giro de camara
+        if (Input.GetMouseButton(1))
+        {
+            horizontalCamera = Input.GetAxis("Mouse X");
+            transform.Rotate(0, horizontalCamera, 0);
 
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Input.GetMouseButtonUp(1))
+            Cursor.lockState = CursorLockMode.None;                
 
         if (input)
         {
             deltaX = Input.GetAxis("Horizontal") * speed;
             deltaZ = Input.GetAxis("Vertical") * speed;
+            transform.Translate(deltaX,0,deltaZ);
         }
         else
         {
@@ -46,5 +41,14 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    public void blockInput()
+    {
+        input = false;
+    }
+    public void allowInput()
+    {
+        input = true;
     }
 }

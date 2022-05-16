@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
         health = 5;
     }
 
-    void loseLife(int amount)
+    public void loseLife(int amount)
     {
         health -= amount;
 

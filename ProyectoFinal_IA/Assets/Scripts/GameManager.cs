@@ -19,5 +19,8 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
-    public void loseGame() { }
+    public void loseGame() 
+    {
+        Debug.Log("Perdiste weyu");
+    }
 }
