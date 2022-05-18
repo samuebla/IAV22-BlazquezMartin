@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     float deltaX, deltaZ;
     float horizontalCamera;
-
+    
     void Update()
     {
         //Giro de camara

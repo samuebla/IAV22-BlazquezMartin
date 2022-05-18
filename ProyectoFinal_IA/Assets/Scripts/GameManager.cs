@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
     }
 
+ 
     public static GameManager getInstance()
     {
         return instance;
@@ -78,5 +80,10 @@ public class GameManager : MonoBehaviour
     public void updatePlayerHealth(int amount)
     {
         theUIManager.GetComponent<UIManager>().updatePlayerHealth(amount);
+    }
+
+    public void buttonResetLevel()
+    {
+        SceneManager.LoadScene("FinalScene");
     }
 }

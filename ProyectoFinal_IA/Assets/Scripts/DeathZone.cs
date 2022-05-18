@@ -8,6 +8,6 @@ public class DeathZone : MonoBehaviour
     {
         //Si se ha chocado con el player...
         if (collision.gameObject.GetComponent<PlayerController>())
-            collision.gameObject.GetComponent<Health>().loseLife(10);
+            collision.gameObject.GetComponent<Health>().loseLife(5);
     }
 }
