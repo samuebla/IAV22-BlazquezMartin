@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     bool win;
 
+    private UIManager theUIManager;
+
+
     private static GameManager instance;
     void Awake()
     {
@@ -22,6 +25,12 @@ public class GameManager : MonoBehaviour
     {
         return instance;
     }
+
+    public void SetUIManager(UIManager uim)
+    {
+        theUIManager = uim;
+    }
+
     private void Start()
     {
         win = false;
@@ -46,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         enemyLife -= amount;
         //Lo mostramos en la interfaz
-        UIManager.getInstance().updateEnemyHealth(enemyLife);
+        theUIManager.GetComponent<UIManager>().updateEnemyHealth(enemyLife);
 
         //Si has ganado...
         if (enemyLife <= 0)
@@ -54,5 +63,20 @@ public class GameManager : MonoBehaviour
             win = true;
             winGame();
         }
+    }
+
+    public void playerAttack(float seconds)
+    {
+        theUIManager.GetComponent<UIManager>().enablePlayerProgressBar(seconds);
+    }
+
+    public void stopPlayerAttack()
+    {
+        theUIManager.GetComponent<UIManager>().disablePlayerProgressBar();
+    }
+
+    public void updatePlayerHealth(int amount)
+    {
+        theUIManager.GetComponent<UIManager>().updatePlayerHealth(amount);
     }
 }

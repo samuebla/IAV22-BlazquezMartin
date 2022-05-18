@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
         health -= amount;
 
         //Lo mostramos en la interfaz
-        UIManager.getInstance().updatePlayerHealth(health);
+        GameManager.getInstance().updatePlayerHealth(health);
 
         if (health <= 0)
             GameManager.getInstance().loseGame();
