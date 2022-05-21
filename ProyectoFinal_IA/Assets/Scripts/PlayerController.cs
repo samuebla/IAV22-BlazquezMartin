@@ -14,9 +14,12 @@ public class PlayerController : MonoBehaviour
     float deltaX, deltaZ;
     float horizontalCamera;
 
+    private Transform cameraPosition;
+
     private void Start()
     {
         GameManager.getInstance().setPlayer(this.gameObject);
+        cameraPosition = GetComponentInChildren<Camera>().gameObject.GetComponent<Transform>();
     }
 
     void Update()
@@ -31,6 +34,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(1))
             Cursor.lockState = CursorLockMode.None;
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((cameraPosition.position - transform.position).magnitude < 15 && (cameraPosition.position - transform.position).magnitude > -15))
+        {
+            cameraPosition.Translate(0, 0, -1);
+            //cameraPosition.position = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z - 1);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((cameraPosition.position - transform.position).magnitude > 4 || (cameraPosition.position - transform.position).magnitude < -4))
+        {
+            cameraPosition.Translate(0, 0, 1);
+            //cameraPosition.position = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z + 1);
+        }
 
         if (input)
         {
