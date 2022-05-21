@@ -17,6 +17,10 @@ public class Health : MonoBehaviour
     {
         health -= amount;
 
+        GameManager.getInstance().stopPlayerAttack();
+
+        gameObject.GetComponent<Animator>().SetBool("Damage", true);
+
         //Lo mostramos en la interfaz
         GameManager.getInstance().updatePlayerHealth(health);
 

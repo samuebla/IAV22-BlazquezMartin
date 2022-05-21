@@ -78,11 +78,15 @@ public class UIManager : MonoBehaviour
     }
     public void disablePlayerProgressBar()
     {
+        if (playerProgressBar.gameObject.active)
+        {
+
         //Desactivamos la accion
         playerProgressBar.gameObject.SetActive(false);
 
         cancelAbility.enabled = true;
         startCancel = true;
+        }
     }
 
 
@@ -107,6 +111,9 @@ public class UIManager : MonoBehaviour
     }
     public void updatePlayerHealth(int amount)
     {
+        if (amount < 0)
+            amount = 0;
+
         for (int i = playerHealth.Length - 1; i >= amount; i--)
             //Desactivamos los corazones
             playerHealth[i].enabled = false;
