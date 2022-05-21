@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 579119870233509714}
   - component: {fileID: 579119870233509713}
   - component: {fileID: 579119870233509712}
-  - component: {fileID: 579119870233509804}
+  - component: {fileID: -6763997580695327840}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Earthquake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &579119870233509804
+--- !u!114 &-6763997580695327840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 579119870233509719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d41fa20bba9a5b4eb5575de69e6e6e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 47278f6fad672d0478f4bb197548d3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

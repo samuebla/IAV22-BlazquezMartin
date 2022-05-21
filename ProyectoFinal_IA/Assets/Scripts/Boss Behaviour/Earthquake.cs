@@ -4,6 +4,10 @@ public class Earthquake : BossAction
 {
     [SerializeField]
     private GameObject aoeDisplayPrefab;
+
+    [SerializeField]
+    private GameObject displaySphereCollider;
+
     private GameObject aoeDisplayGameobject;
     protected override void displayAoe()
     {
@@ -17,6 +21,9 @@ public class Earthquake : BossAction
 
     protected override void doAction()
     {
+        //Instanciamos el elemento que hace daño
+        Instantiate<GameObject>(displaySphereCollider);
+
         Destroy(aoeDisplayGameobject);
         Debug.Log("Se empieza a hacer la accion");
     }

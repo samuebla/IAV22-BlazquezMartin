@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class triggerLandslide : MonoBehaviour
+public class triggerEarthquake : MonoBehaviour
 {
     float timeToDestroy = 0.1f;
     float timer = 0;
 
-    bool dontRecieveDmg = false;
+    bool dontRecieveDmg = true;
 
     private void Update()
     {
@@ -28,8 +28,8 @@ public class triggerLandslide : MonoBehaviour
         //Si el jugador esta dentro...
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //No recibe daño
-            dontRecieveDmg = true;
+            //Recibe daño
+            dontRecieveDmg = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -37,8 +37,8 @@ public class triggerLandslide : MonoBehaviour
         //Si se sale antes de que acabe...
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //Vuelve a recibir daño
-            dontRecieveDmg = false;
+            //No lo recibe
+            dontRecieveDmg = true;
         }
     }    
 }

@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: aoeDisplayPrefab
       value: 
       objectReference: {fileID: 3443834613990213306, guid: 24d875384aad3be44ba8fdfe6db00510, type: 3}
+    - target: {fileID: 8310539930110153811, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
+      propertyPath: displaySphereCollider
+      value: 
+      objectReference: {fileID: 579119870233509719, guid: b18ec0e1856fb2047a82ccf1d6dd30c4, type: 3}
     - target: {fileID: 8310539930110153816, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
       propertyPath: m_Name
       value: Boss
