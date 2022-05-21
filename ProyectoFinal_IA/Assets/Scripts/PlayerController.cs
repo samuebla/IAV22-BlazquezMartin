@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     bool input = true;
     bool isAttacking = false;
-
+    float timer = 0;
+    
     [SerializeField]
     private float speed;
 
@@ -44,12 +45,23 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
             GameManager.getInstance().playerAttack(3);
         }
+
+        if (isAttacking)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 3)
+            {
+                isAttacking = false;
+                timer = 0;
+            }
+        }
+
         if (isAttacking && (deltaX != 0 || deltaZ != 0))
         {
             GameManager.getInstance().stopPlayerAttack();
             isAttacking = false;
-        }        
-        
+        }
+
 
 
     }
