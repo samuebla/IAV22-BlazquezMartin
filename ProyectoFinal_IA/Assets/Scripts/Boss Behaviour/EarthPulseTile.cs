@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthPulseTile : MonoBehaviour
 {
-    enum TileState { NotActive, Casting, Activated, Terminated }
+    public enum TileState { NotActive, Casting, Activated, Terminated }
 
     private TileState currentState = TileState.NotActive;
 
@@ -13,8 +13,8 @@ public class EarthPulseTile : MonoBehaviour
 
     private float activationTime;
 
-    protected float castTime = 5;
-    protected float actionTime = 5;
+    private float castTime = 5;
+    private float actionTime = 5;
 
 
     void Start()
@@ -22,27 +22,53 @@ public class EarthPulseTile : MonoBehaviour
         collider = gameObject.GetComponent<BoxCollider>();
         renderer = gameObject.GetComponent<SpriteRenderer>();
 
-        collider.enabled = false;
         renderer.enabled = false;
     }
 
     void Update()
     {
-        if (currentState != TileState.NotActive && currentState != TileState.Terminated)
+        switch (currentState)
         {
+            case TileState.Casting:
+                if (activationTime + castTime <= Time.time)
+                {
+                    currentState = TileState.Activated;
 
+                    renderer.enabled = false;
+                    activationTime = Time.time;
+                }
+
+                break;
+
+            case TileState.Activated:
+                if (activationTime + actionTime <= Time.time)
+                {
+                    currentState = TileState.Terminated;
+
+                    //Deactivate visual effect
+
+                }
+
+                break;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (currentState == TileState.NotActive)
+        if (currentState == TileState.NotActive && other.gameObject.GetComponent<EarthPulseTile>().getCurrentState() == TileState.Activated)
         {
             currentState = TileState.Casting;
 
             //Start
             activationTime = Time.time;
+
+            renderer.enabled = true;
         }
+    }
+
+    public TileState getCurrentState()
+    {
+        return currentState;
     }
 
     public void manualActivate()
@@ -53,6 +79,8 @@ public class EarthPulseTile : MonoBehaviour
 
             //Start
             activationTime = Time.time;
+
+            renderer.enabled = true;
         }
     }
 }

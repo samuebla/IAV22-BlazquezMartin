@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -650,14 +650,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8310539930110153811, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
-      propertyPath: aoeDisplayPrefab
-      value: 
-      objectReference: {fileID: 3443834613990213306, guid: 24d875384aad3be44ba8fdfe6db00510, type: 3}
-    - target: {fileID: 8310539930110153811, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
-      propertyPath: displaySphereCollider
-      value: 
-      objectReference: {fileID: 579119870233509719, guid: b18ec0e1856fb2047a82ccf1d6dd30c4, type: 3}
     - target: {fileID: 8310539930110153816, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -684,7 +676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8310539930110153820, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 8310539930110153820, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2361,25 +2353,6 @@ RectTransform:
   m_AnchoredPosition: {x: 760.5, y: 383}
   m_SizeDelta: {x: 101, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1856421081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8310539930110153816, guid: 057b8084a45f93647a8ebf6f2389ee06, type: 3}
-  m_PrefabInstance: {fileID: 416307226}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1856421082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856421081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c80bc1770bf156a4aaa5ce300871f07a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aoeDisplayPrefab: {fileID: 3443834613990213306, guid: 2129b51647fc26b4981df74e279166f5, type: 3}
-  displaySphereCollider: {fileID: 579119870233509719, guid: 983055cc23191944793062a74d92693a, type: 3}
 --- !u!1 &1897051276
 GameObject:
   m_ObjectHideFlags: 0
