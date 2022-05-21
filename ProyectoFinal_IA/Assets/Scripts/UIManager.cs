@@ -93,12 +93,12 @@ public class UIManager : MonoBehaviour
     /// Activa la barra de progreso del jugador con los segundos que sea
     /// </summary>
     /// <param name="seconds"></param>
-    public void enableEnemyProgressBar(float seconds)
+    public void enableEnemyProgressBar(float seconds, string text)
     {
         //Lo activamos
         enemyProgressBar.gameObject.SetActive(true);
         //Y establecemos los parametros...
-        enemyProgressBar.GetComponent<ProgressBar>().setParameters(seconds, "Odio a ReinoUnido");
+        enemyProgressBar.GetComponent<ProgressBar>().setParameters(seconds, text);
     }
 
     public void updateEnemyHealth(int amount)

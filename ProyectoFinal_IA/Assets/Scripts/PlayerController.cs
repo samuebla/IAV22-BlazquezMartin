@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour
 
     float deltaX, deltaZ;
     float horizontalCamera;
-    
+
+    private void Start()
+    {
+        GameManager.getInstance().setPlayer(this.gameObject);
+    }
+
     void Update()
     {
         //Giro de camara

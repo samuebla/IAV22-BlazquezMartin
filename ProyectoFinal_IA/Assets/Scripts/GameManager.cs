@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     private UIManager theUIManager;
 
+    private GameObject player;
 
     private static GameManager instance;
     void Awake()
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
     public static GameManager getInstance()
     {
         return instance;
+    }
+
+    public void setPlayer(GameObject player_)
+    {
+        player = player_;
     }
 
     public void SetUIManager(UIManager uim)
@@ -77,6 +83,15 @@ public class GameManager : MonoBehaviour
         theUIManager.GetComponent<UIManager>().disablePlayerProgressBar();
     }
 
+    /// <summary>
+    /// El GM controla cuando el jugador pierde vida por culpa del enemigo
+    /// </summary>
+    /// <param name="amount"></param>
+    public void playerLoseLife(int amount)
+    {
+        player.GetComponent<Health>().loseLife(amount);
+    }
+
     public void updatePlayerHealth(int amount)
     {
         theUIManager.GetComponent<UIManager>().updatePlayerHealth(amount);
@@ -85,5 +100,15 @@ public class GameManager : MonoBehaviour
     public void buttonResetLevel()
     {
         SceneManager.LoadScene("FinalScene");
+    }
+
+    /// <summary>
+    /// Con este metodo mostramos en la interfaz el casteo de la habilidad del boss
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <param name="text"></param>
+    public void startEnemyAbility(float seconds, string text)
+    {
+        theUIManager.GetComponent<UIManager>().enableEnemyProgressBar(seconds, text);
     }
 }
