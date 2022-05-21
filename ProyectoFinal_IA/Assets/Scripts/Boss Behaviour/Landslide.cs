@@ -22,13 +22,25 @@ public class Landslide : BossAction
         //Mostramos el casteo de la habilidad en la interfaz
         GameManager.getInstance().startEnemyAbility(castTime, "Landslide");
 
+        GetComponent<Animator>().SetBool("idle", false);
+        GetComponent<Animator>().SetBool("defy", true);
+
+        //Mientras prepara el ataque, mira constantemente al jugador
+        GetComponent<LookAtPlayer>().setIsLooking(true);
+
         //Testing
         Debug.Log("Se empieza a mostrar el area de efecto");
     }
 
     protected override void doAction()
     {
+        //Al hacer el ataque, deja de mirar al jugador
+        GetComponent<LookAtPlayer>().setIsLooking(false);
+
         Destroy(aoeDisplayGameobject);
+
+        GetComponent<Animator>().SetBool("defy", false);
+        GetComponent<Animator>().SetBool("attack_03", true);
 
         //Instanciamos un prefab para que el jugador no pierda vida si está dentro del mismo
         Instantiate<GameObject>(displaySphereCollider);
