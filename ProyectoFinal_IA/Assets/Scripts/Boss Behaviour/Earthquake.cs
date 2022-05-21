@@ -9,6 +9,11 @@ public class Earthquake : BossAction
     private GameObject displaySphereCollider;
 
     private GameObject aoeDisplayGameobject;
+
+    //Redefinimos el tiempo de casteo y de la acción
+    protected new float castTime = 4;
+    protected new float actionTime = 4;
+
     protected override void displayAoe()
     {
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
