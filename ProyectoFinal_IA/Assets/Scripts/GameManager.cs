@@ -65,6 +65,7 @@ public void winGame()
 
 public void enemyRecieveDamage(int amount)
 {
+        player.GetComponent<Animator>().SetBool("Jump", true);
     enemyLife -= amount;
     //Lo mostramos en la interfaz
     theUIManager.GetComponent<UIManager>().updateEnemyHealth(enemyLife);

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     bool input = true;
     bool isAttacking = false;
     float timer = 0;
-    
+
     [SerializeField]
     private float speed;
 
@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
 
     private Transform cameraPosition;
 
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void Start()
     {
         GameManager.getInstance().setPlayer(this.gameObject);
@@ -48,8 +54,10 @@ public class PlayerController : MonoBehaviour
 
         if (input)
         {
+
             deltaX = Input.GetAxis("Horizontal") * speed;
             deltaZ = Input.GetAxis("Vertical") * speed;
+
             transform.Translate(deltaX, 0, deltaZ);
         }
         else
