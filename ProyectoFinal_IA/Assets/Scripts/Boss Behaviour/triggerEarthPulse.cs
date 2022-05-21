@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class triggerEarthquake : MonoBehaviour
+public class triggerEarthPulse : MonoBehaviour
 {
     float timeToDestroy = 0.1f;
     float timer = 0;
@@ -21,7 +21,6 @@ public class triggerEarthquake : MonoBehaviour
         //Si el jugador esta dentro...
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //Recibe daño
             GameManager.getInstance().playerLoseLife(1);
         }
     }

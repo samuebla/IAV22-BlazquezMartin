@@ -11,6 +11,9 @@ public class EarthPulseTile : MonoBehaviour
     private BoxCollider collider;
     private SpriteRenderer renderer;
 
+    [SerializeField]
+    private GameObject cubeCollider;
+
     private float activationTime;
 
     private float castTime = 5;
@@ -36,6 +39,8 @@ public class EarthPulseTile : MonoBehaviour
 
                     renderer.enabled = false;
                     activationTime = Time.time;
+
+                    Instantiate<GameObject>(cubeCollider,this.transform.position, Quaternion.identity);
                 }
 
                 break;
