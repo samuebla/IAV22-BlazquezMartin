@@ -8,7 +8,7 @@ public class ProgressBar : MonoBehaviour
     private float max = 3;
     public float current = 0.0f;
     public Image mask;
-
+    bool player = false;
 
     private void OnEnable()
     {
@@ -29,6 +29,11 @@ public class ProgressBar : MonoBehaviour
         //Una vez llegaran al maximo...
         else
         {
+            //Si es la barra del jugador...
+            if (player)
+                //Le quitamos vida al enemigo
+                GameManager.getInstance().enemyRecieveDamage(GameManager.getInstance().getPlayerDmg());
+
             //Desactivamos el objeto
             this.gameObject.SetActive(false);
         }
@@ -40,8 +45,10 @@ public class ProgressBar : MonoBehaviour
     }
 
     //Se llama desde el UIManager
-    public void setParameters(float seconds,string abilityName)
+    public void setParameters(float seconds,string abilityName, bool isPlayer = false)
     {
+        player = isPlayer;
+
         //Establecemos el maximo
         max = seconds;
 

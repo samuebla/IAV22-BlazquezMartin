@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
         //Lo activamos
         playerProgressBar.gameObject.SetActive(true);
         //Y establecemos los parametros...
-        playerProgressBar.GetComponent<ProgressBar>().setParameters(seconds, "Chanel ganadora");
+        playerProgressBar.GetComponent<ProgressBar>().setParameters(seconds, "Chanel ganadora",true);
 
         //Si activamos  la habilidad tenemos que desactivar el texto de cancel
         if (startCancel)
