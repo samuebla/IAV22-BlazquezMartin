@@ -29,6 +29,8 @@ public class Earthquake : BossAction
         //Instanciamos el elemento que hace daño
         Instantiate<GameObject>(displaySphereCollider);
 
+        GetComponent<Animator>().SetBool("attack_03", true);
+
         Destroy(aoeDisplayGameobject);
         Debug.Log("Se empieza a hacer la accion");
     }
