@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae6c72f6da0b344cae22cc09f379f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftRockPrefab: {fileID: 8175837007918893788, guid: 5b0e210a7fd62e241b4ab34c65f3c939, type: 3}
-  rightRockPrefab: {fileID: 3312362925086625483, guid: 945e7cc01bec3d34fb260f8279da8076, type: 3}
+  leftRockPrefab: {fileID: 1669187565217618912, guid: 84d90bb09f834234185b6258810d7c74, type: 3}
+  rightRockPrefab: {fileID: 7756229456569396474, guid: 401e29b338295fe4ca251bb03c7cfdf7, type: 3}
   aoeDisplayPrefabLeft: {fileID: 4726946494963281934, guid: df0c8c2212b3e8c4ebdec7f25c3ef0ee, type: 3}
   aoeDisplayPrefabRight: {fileID: 6152903036216889299, guid: 1d81df61a7524d244b95d3c143bb0a4b, type: 3}
 --- !u!114 &185274046
