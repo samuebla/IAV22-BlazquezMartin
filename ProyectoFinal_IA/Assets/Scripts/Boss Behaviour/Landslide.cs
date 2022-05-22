@@ -30,6 +30,9 @@ public class Landslide : BossAction
 
     protected override void doAction()
     {
+        //Play the sound
+        GetComponent<AudioSource>().Play();
+
         //Stops looking at the player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 

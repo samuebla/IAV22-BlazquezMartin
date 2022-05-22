@@ -28,6 +28,9 @@ public class TitanicRoar : BossAction
         //Stops looking at player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 
+        //Play the sound
+        GetComponent<AudioSource>().Play();
+
         GameManager.getInstance().playerLoseLife(5);
 
         GetComponent<Animator>().SetBool("defy", false);

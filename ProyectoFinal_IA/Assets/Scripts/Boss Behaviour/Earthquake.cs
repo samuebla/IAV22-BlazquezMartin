@@ -10,6 +10,7 @@ public class Earthquake : BossAction
 
     private GameObject aoeDisplayGameobject;
 
+
     protected override void displayAoe()
     {
         castTime = 4;
@@ -22,12 +23,16 @@ public class Earthquake : BossAction
         GetComponent<Animator>().SetBool("idle", false);
         GetComponent<Animator>().SetBool("defy", true);
 
+        
         //Looks to the player while casting
         GetComponent<LookAtPlayer>().setIsLooking(true);
     }
 
     protected override void doAction()
     {
+        //Play the sound
+        GetComponent<AudioSource>().Play();
+
         //Stops looking at player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 

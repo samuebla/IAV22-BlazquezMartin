@@ -23,6 +23,9 @@ public class Rockbuster : BossAction
         //Stops looking at player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 
+        //Play the sound
+        GetComponent<AudioSource>().Play();
+
         int layerMask = 1 << 6;
 
         //Player collision check

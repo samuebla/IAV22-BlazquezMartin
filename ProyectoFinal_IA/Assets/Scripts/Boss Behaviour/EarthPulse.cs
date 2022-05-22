@@ -39,6 +39,9 @@ public class EarthPulse : BossAction
         //Stops looking at player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 
+        //Play the sound
+        GetComponent<AudioSource>().Play();
+
         GetComponent<Animator>().SetBool("defy", false);
         GetComponent<Animator>().SetBool("attack_03", true);
     }
