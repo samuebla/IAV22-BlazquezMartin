@@ -17,6 +17,9 @@ public class EarthExpulsion : BossAction
     private GameObject aoeDisplayGameobjectLeft;
     private GameObject aoeDisplayGameobjectRight;
 
+    private GameObject leftRock;
+    private GameObject rightRock;
+
     //Redefinimos el tiempo de casteo y de la acción
     protected new float castTime = 4;
     protected new float actionTime = 4;
@@ -33,8 +36,8 @@ public class EarthExpulsion : BossAction
     protected override void doAction()
     {
         //Instanciamos el elemento que hace daño
-        Instantiate<GameObject>(leftRockPrefab);
-        Instantiate<GameObject>(rightRockPrefab);
+        leftRock = Instantiate<GameObject>(leftRockPrefab);
+        rightRock = Instantiate<GameObject>(rightRockPrefab);
         //Instantiate<GameObject>(displaySphereCollider);
 
         Destroy(aoeDisplayGameobjectLeft);
@@ -44,5 +47,23 @@ public class EarthExpulsion : BossAction
     protected override void stopAction()
     {
         
+    }
+
+    public Vector3 getLeftRockPosition()
+    {
+        return leftRock.transform.position;
+    }
+
+    public Vector3 getRightRockPosition()
+    {
+        return rightRock.transform.position;
+    }
+
+    public void doDamageToRocks()
+    {
+        if (leftRock)
+            leftRock.GetComponent<RockHealth>().loseHealth();
+        if (rightRock)
+            rightRock.GetComponent<RockHealth>().loseHealth();
     }
 }

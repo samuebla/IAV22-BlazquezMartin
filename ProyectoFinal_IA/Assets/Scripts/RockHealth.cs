@@ -25,10 +25,14 @@ public class RockHealth : MonoBehaviour
         }
     }
 
-    void loseHealth()
+    public void loseHealth()
     {
         health_--;
         timeLastHit = Time.time;
         invulnerable = true;
+        if (health_ == 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
