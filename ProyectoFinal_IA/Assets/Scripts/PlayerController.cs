@@ -44,12 +44,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((cameraPosition.position - transform.position).magnitude < 15 && (cameraPosition.position - transform.position).magnitude > -15))
         {
             cameraPosition.Translate(0, 0, -1);
-            //cameraPosition.position = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z - 1);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((cameraPosition.position - transform.position).magnitude > 4 || (cameraPosition.position - transform.position).magnitude < -4))
         {
             cameraPosition.Translate(0, 0, 1);
-            //cameraPosition.position = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z + 1);
         }
 
         if (input)
@@ -68,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
         if (input)
         {
-            //Si pulsas el espacio...
             if (Input.GetButtonDown("Jump"))
             {
                 isAttacking = true;

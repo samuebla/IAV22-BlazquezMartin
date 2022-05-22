@@ -27,22 +27,22 @@ public class Health : MonoBehaviour
 
        anim.SetBool("Damage", true);
 
-        //Lo mostramos en la interfaz
         GameManager.getInstance().updatePlayerHealth(health);
 
         if (health <= 0)
         {
-            //Quitamos el slime
+
+            //Disable slime
             crown.SetActive(false);
             slime.SetActive(false);
 
-            //Y le quitamos la movilidad
+            //Stop moving
             GetComponent<PlayerController>().enabled = false;
 
-            //Activamos el cursor por si ha muerto con el cursor desaparecido
+            //Activate cursor
             Cursor.lockState = CursorLockMode.None;
 
-            //GameManager.getInstance().loseGame();
+            GameManager.getInstance().loseGame();
         }
     }
 }

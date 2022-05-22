@@ -122,11 +122,11 @@ public class GameManager : MonoBehaviour
 
     public void loseGame()
     {
-        Debug.Log("Perdiste weyu");
+        enemy.GetComponent<WinOrLose>().startWinOrLose(false);
     }
 
     public void winGame()
     {
-        Debug.Log("Ganamos Yey");
+        enemy.GetComponent<WinOrLose>().startWinOrLose(true);
     }
 }
