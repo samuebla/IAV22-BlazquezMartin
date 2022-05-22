@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     //Vida del enemigo
     int enemyLife = 100;
 
-    const int PLAYERATTACKDMG = 10;
+    const int PLAYERATTACKDMG = 5;
 
     bool win;
 
