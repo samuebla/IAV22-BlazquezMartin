@@ -18,4 +18,9 @@ public class LookAtPlayer : MonoBehaviour
     }
 
     public void setIsLooking(bool isLooking_) { isLooking = isLooking_; }
+
+    public Vector3 getPlayerPosition()
+    {
+        return player.position;
+    }
 }

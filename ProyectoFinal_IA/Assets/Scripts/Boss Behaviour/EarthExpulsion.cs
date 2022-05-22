@@ -17,25 +17,26 @@ public class EarthExpulsion : BossAction
     private GameObject aoeDisplayGameobjectLeft;
     private GameObject aoeDisplayGameobjectRight;
 
-    //Redefinimos el tiempo de casteo y de la acción
-    protected new float castTime = 4;
-    protected new float actionTime = 4;
+    private GameObject leftRock;
+    private GameObject rightRock;
 
     protected override void displayAoe()
     {
+        castTime = 4;
+        actionTime = 4;
+
         aoeDisplayGameobjectLeft = Instantiate<GameObject>(aoeDisplayPrefabLeft);
         aoeDisplayGameobjectRight = Instantiate<GameObject>(aoeDisplayPrefabRight);
 
-        //Mostramos el casteo de la habilidad en la interfaz
+        //We show the cast in the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Earth Expulsion");
     }
 
     protected override void doAction()
     {
         //Instanciamos el elemento que hace daño
-        Instantiate<GameObject>(leftRockPrefab);
-        Instantiate<GameObject>(rightRockPrefab);
-        //Instantiate<GameObject>(displaySphereCollider);
+        leftRock = Instantiate<GameObject>(leftRockPrefab);
+        rightRock = Instantiate<GameObject>(rightRockPrefab);
 
         Destroy(aoeDisplayGameobjectLeft);
         Destroy(aoeDisplayGameobjectRight);
@@ -44,5 +45,23 @@ public class EarthExpulsion : BossAction
     protected override void stopAction()
     {
         
+    }
+
+    public Vector3 getLeftRockPosition()
+    {
+        return leftRock.transform.position;
+    }
+
+    public Vector3 getRightRockPosition()
+    {
+        return rightRock.transform.position;
+    }
+
+    public void doDamageToRocks()
+    {
+        if (leftRock)
+            leftRock.GetComponent<RockHealth>().loseHealth();
+        if (rightRock)
+            rightRock.GetComponent<RockHealth>().loseHealth();
     }
 }

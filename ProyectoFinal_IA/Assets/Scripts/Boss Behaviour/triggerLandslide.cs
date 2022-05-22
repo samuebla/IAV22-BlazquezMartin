@@ -14,9 +14,7 @@ public class triggerLandslide : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timeToDestroy)
         {
-            //Si no se ha posicionado correctamente
             if (!dontRecieveDmg)
-                //Pierde una vida
                 GameManager.getInstance().playerLoseLife(1);
 
             Destroy(this.gameObject);
@@ -25,19 +23,18 @@ public class triggerLandslide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Si el jugador esta dentro...
+        //If the player is inside
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //No recibe daño
             dontRecieveDmg = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        //Si se sale antes de que acabe...
+        //If the player steps out too soon
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //Vuelve a recibir daño
+            //Takes damage
             dontRecieveDmg = false;
         }
     }    

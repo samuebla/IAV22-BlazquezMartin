@@ -13,6 +13,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6607132902047914102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829019995998665711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6b3a589621cd24b88462f86aff0d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoeDisplayPrefab: {fileID: 7193692018517315079, guid: 8620f89882cab6c4c979ee283a44ca5a, type: 3}
+--- !u!114 &106492101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829019995998665711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c2d09324bd0414b902c450e2eee811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &106492102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829019995998665711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae6c72f6da0b344cae22cc09f379f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftRockPrefab: {fileID: 8175837007918893788, guid: 5b0e210a7fd62e241b4ab34c65f3c939, type: 3}
+  rightRockPrefab: {fileID: 3312362925086625483, guid: 945e7cc01bec3d34fb260f8279da8076, type: 3}
+  aoeDisplayPrefabLeft: {fileID: 4726946494963281934, guid: df0c8c2212b3e8c4ebdec7f25c3ef0ee, type: 3}
+  aoeDisplayPrefabRight: {fileID: 6152903036216889299, guid: 1d81df61a7524d244b95d3c143bb0a4b, type: 3}
 --- !u!114 &185274046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,10 +68,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"title":"BossBehaviour","summary":"Defines
-      the order of actions the boss takes","pan":{"x":121.006,"y":187.0112},"zoom":1.0,"elements":[{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Start","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[],"$version":"A"}},"isStart":true,"position":{"x":-129.0,"y":-240.0},"width":170.0,"guid":"c7600bd3-e2f3-4d98-884f-2c89214c9dcb","$version":"A","$type":"Bolt.FlowState","$id":"4"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Earthquake","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-229.0,"y":-213.0},"guid":"1f772e2f-fa86-4c9f-a7d6-9bd079c2a01f","$version":"A","$type":"Bolt.OnEnterState","$id":"24"},{"chainable":false,"member":{"name":"StartAction","parameterTypes":[],"targetType":"Earthquake","targetTypeName":"Earthquake","$version":"A"},"defaultValues":{"target":null},"position":{"x":83.0,"y":-218.0},"guid":"84acff0a-817b-4159-a36f-975896015932","$version":"A","$type":"Bolt.InvokeMember","$id":"26"},{"sourceUnit":{"$ref":"24"},"sourceKey":"trigger","destinationUnit":{"$ref":"26"},"destinationKey":"enter","guid":"b4edaec0-8608-405d-a1ea-3b071f12b584","$type":"Bolt.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":-156.0,"y":-84.0},"width":170.0,"guid":"c1c4e1de-95eb-4f28-b7ad-032dd5fceb1a","$version":"A","$type":"Bolt.FlowState","$id":"14"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Earth
-      Pulse","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-229.0,"y":-213.0},"guid":"1f772e2f-fa86-4c9f-a7d6-9bd079c2a01f","$version":"A","$type":"Bolt.OnEnterState","$id":"40"},{"chainable":false,"member":{"name":"StartAction","parameterTypes":[],"targetType":"EarthPulse","targetTypeName":"EarthPulse","$version":"A"},"defaultValues":{"target":null},"position":{"x":53.0,"y":-216.0},"guid":"2e2a59d7-7ea3-4ebc-bcc2-cbb3a5903e68","$version":"A","$type":"Bolt.InvokeMember","$id":"42"},{"sourceUnit":{"$ref":"40"},"sourceKey":"trigger","destinationUnit":{"$ref":"42"},"destinationKey":"enter","guid":"be8aff4a-c710-432c-930b-909450c89541","$type":"Bolt.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":-154.0,"y":199.0},"width":170.0,"guid":"d0eaaae3-0d4d-4461-b2af-79c789d5d153","$version":"A","$type":"Bolt.FlowState","$id":"30"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Landslide","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"ed4c749f-f03b-45c8-86f5-4eb59598ada0","$version":"A","$type":"Bolt.OnEnterState","$id":"56"},{"chainable":false,"member":{"name":"StartAction","parameterTypes":[],"targetType":"Landslide","targetTypeName":"Landslide","$version":"A"},"defaultValues":{"target":null},"position":{"x":113.0,"y":-223.0},"guid":"007890c5-333f-4384-93ab-708115878ca3","$version":"A","$type":"Bolt.InvokeMember","$id":"58"},{"sourceUnit":{"$ref":"56"},"sourceKey":"trigger","destinationUnit":{"$ref":"58"},"destinationKey":"enter","guid":"3485815f-8baf-44dd-8f37-f5e446af8297","$type":"Bolt.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":-157.0,"y":64.0},"width":170.0,"guid":"4416046c-81dc-4ca7-bb9a-be835a11b7f4","$version":"A","$type":"Bolt.FlowState","$id":"46"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Landslide","summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-205.0,"y":-215.0},"guid":"ed4c749f-f03b-45c8-86f5-4eb59598ada0","$version":"A","$type":"Bolt.OnEnterState","$id":"72"},{"chainable":false,"member":{"name":"StartAction","parameterTypes":[],"targetType":"Landslide","targetTypeName":"Landslide","$version":"A"},"defaultValues":{"target":null},"position":{"x":113.0,"y":-223.0},"guid":"007890c5-333f-4384-93ab-708115878ca3","$version":"A","$type":"Bolt.InvokeMember","$id":"74"},{"sourceUnit":{"$ref":"72"},"sourceKey":"trigger","destinationUnit":{"$ref":"74"},"destinationKey":"enter","guid":"3485815f-8baf-44dd-8f37-f5e446af8297","$type":"Bolt.ControlConnection"}],"$version":"A"}},"isStart":false,"position":{"x":-159.0,"y":349.0},"width":170.0,"guid":"61fcfd44-43d8-4792-8b60-48ec6089fe35","$version":"A","$type":"Bolt.FlowState","$id":"62"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":-162.0,"y":-117.0},"guid":"9e3689ad-0666-47ff-b6ab-a09e946eb63c","$version":"A","$type":"Bolt.TriggerStateTransition","$id":"88"},{"coroutine":false,"defaultValues":{},"position":{"x":-442.0,"y":-121.0},"guid":"a1eb9ea1-dab3-433e-819c-fc1e73dbd39f","$version":"A","$type":"Bolt.Update","$id":"90"},{"sourceUnit":{"$ref":"90"},"sourceKey":"trigger","destinationUnit":{"$ref":"88"},"destinationKey":"trigger","guid":"a9c7b0a6-0188-4b10-aa61-82b736404357","$type":"Bolt.ControlConnection"}],"$version":"A"}},"source":{"$ref":"4"},"destination":{"$ref":"14"},"guid":"00f88ea3-28d1-4dc3-a2c1-0ed21391b951","$version":"A","$type":"Bolt.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"1519dae9-aec8-4599-9300-471dd8951cd9","$version":"A","$type":"Bolt.TriggerStateTransition","$id":"103"},{"coroutine":false,"defaultValues":{},"position":{"x":-477.0,"y":-37.0},"guid":"0fd55ddf-d2c8-4da1-bf15-6451c75939d5","$version":"A","$type":"Bolt.Update","$id":"105"},{"defaultValues":{},"position":{"x":-86.0,"y":-53.0},"guid":"7a265c6f-6c69-46d7-b762-d65674d33458","$version":"A","$type":"Bolt.Branch","$id":"107"},{"chainable":false,"member":{"name":"actionEnded","parameterTypes":[],"targetType":"Earthquake","targetTypeName":"Earthquake","$version":"A"},"defaultValues":{"target":null},"position":{"x":-282.0,"y":-51.0},"guid":"ff1a11d7-64a0-4fa5-a2e6-a2cefa778789","$version":"A","$type":"Bolt.InvokeMember","$id":"109"},{"sourceUnit":{"$ref":"107"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"103"},"destinationKey":"trigger","guid":"1254ae73-b896-4626-880f-e9c752786275","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"105"},"sourceKey":"trigger","destinationUnit":{"$ref":"109"},"destinationKey":"enter","guid":"c65bbf16-e080-4af0-8221-a4710e625b8a","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"109"},"sourceKey":"exit","destinationUnit":{"$ref":"107"},"destinationKey":"enter","guid":"a6bc8258-350a-4dc5-8967-574e0270b9b4","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"109"},"sourceKey":"result","destinationUnit":{"$ref":"107"},"destinationKey":"condition","guid":"e2608a0b-0747-47c9-8a64-f359d50bf74d","$type":"Bolt.ValueConnection"}],"$version":"A"}},"source":{"$ref":"14"},"destination":{"$ref":"46"},"guid":"37b1fde3-de8a-4647-bc1e-ff4d1ec1541d","$version":"A","$type":"Bolt.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"feffe37e-7073-4d5c-bcc7-8c20905536ed","$version":"A","$type":"Bolt.TriggerStateTransition","$id":"126"},{"coroutine":false,"defaultValues":{},"position":{"x":-420.0,"y":-4.0},"guid":"f15863c5-b7a8-4730-a077-ad39c1babf96","$version":"A","$type":"Bolt.Update","$id":"128"},{"chainable":false,"member":{"name":"actionEnded","parameterTypes":[],"targetType":"Landslide","targetTypeName":"Landslide","$version":"A"},"defaultValues":{"target":null},"position":{"x":-234.0,"y":-17.0},"guid":"08117115-d139-4287-a6a9-592f1c8bbf5c","$version":"A","$type":"Bolt.InvokeMember","$id":"130"},{"defaultValues":{},"position":{"x":-37.0,"y":-25.0},"guid":"bd63a759-a0fb-4f76-a56d-67ddb0db32b8","$version":"A","$type":"Bolt.Branch","$id":"133"},{"sourceUnit":{"$ref":"128"},"sourceKey":"trigger","destinationUnit":{"$ref":"130"},"destinationKey":"enter","guid":"293926cd-4260-4f72-8072-4f57423ccc2c","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"130"},"sourceKey":"exit","destinationUnit":{"$ref":"133"},"destinationKey":"enter","guid":"2b1924dd-1a85-4772-aef1-c4acbc055eb1","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"133"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"126"},"destinationKey":"trigger","guid":"ffdafe2e-a80d-4e15-b5e4-e56d5b4242c7","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"130"},"sourceKey":"result","destinationUnit":{"$ref":"133"},"destinationKey":"condition","guid":"46c7ac4d-2e36-48b4-a9b7-da7522adbefe","$type":"Bolt.ValueConnection"}],"$version":"A"}},"source":{"$ref":"46"},"destination":{"$ref":"30"},"guid":"6f6de541-222f-4c1c-95b2-50dbc599dc03","$version":"A","$type":"Bolt.FlowStateTransition"},{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":100.0,"y":-50.0},"guid":"858eda33-fa0f-4387-a549-919ac5ec7a67","$version":"A","$type":"Bolt.TriggerStateTransition","$id":"149"},{"coroutine":false,"defaultValues":{},"position":{"x":-461.0,"y":-39.0},"guid":"a1a46c50-7ba5-48fd-a640-666cdefac00d","$version":"A","$type":"Bolt.Update","$id":"151"},{"chainable":false,"member":{"name":"actionEnded","parameterTypes":[],"targetType":"EarthPulse","targetTypeName":"EarthPulse","$version":"A"},"defaultValues":{"target":null},"position":{"x":-298.0,"y":-37.0},"guid":"75c38830-872c-4b68-8264-855b7db066dc","$version":"A","$type":"Bolt.InvokeMember","$id":"153"},{"defaultValues":{},"position":{"x":-119.0,"y":-47.0},"guid":"8279150a-3a8e-4d18-8ee4-90d3f779ae11","$version":"A","$type":"Bolt.Branch","$id":"156"},{"sourceUnit":{"$ref":"151"},"sourceKey":"trigger","destinationUnit":{"$ref":"153"},"destinationKey":"enter","guid":"31d768f6-ed85-4342-8659-f688f0218285","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"153"},"sourceKey":"exit","destinationUnit":{"$ref":"156"},"destinationKey":"enter","guid":"75fd27f7-f248-492d-9216-2ef6a42075f6","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"156"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"149"},"destinationKey":"trigger","guid":"f856c89f-f17c-4d2a-a988-9d28c8eda159","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"153"},"sourceKey":"result","destinationUnit":{"$ref":"156"},"destinationKey":"condition","guid":"0a8a35fe-9e09-4c4a-a57e-3acec75ba0b1","$type":"Bolt.ValueConnection"}],"$version":"A"}},"source":{"$ref":"30"},"destination":{"$ref":"62"},"guid":"fc695859-8c86-4193-b76b-5ef931f5da8c","$version":"A","$type":"Bolt.FlowStateTransition"}],"$version":"A"}}}'
-    _objectReferences: []
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 69bab6ac586425249b93b1e16c5a5ab9, type: 2}
 --- !u!114 &185274048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aoeDisplayPrefab: {fileID: 3443834613990213306, guid: 24d875384aad3be44ba8fdfe6db00510, type: 3}
   displaySphereCollider: {fileID: 579119870233509719, guid: b18ec0e1856fb2047a82ccf1d6dd30c4, type: 3}
---- !u!114 &106492101
+--- !u!114 &7678273728341117553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,26 +136,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6829019995998665711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c2d09324bd0414b902c450e2eee811, type: 3}
+  m_Script: {fileID: 11500000, guid: 344558fcc23625a4bb48fc8d8f3799b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
---- !u!114 &106492102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6829019995998665711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae6c72f6da0b344cae22cc09f379f04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftRockPrefab: {fileID: 8175837007918893788, guid: 5b0e210a7fd62e241b4ab34c65f3c939, type: 3}
-  rightRockPrefab: {fileID: 3312362925086625483, guid: 945e7cc01bec3d34fb260f8279da8076, type: 3}
-  aoeDisplayPrefabLeft: {fileID: 4726946494963281934, guid: df0c8c2212b3e8c4ebdec7f25c3ef0ee, type: 3}
-  aoeDisplayPrefabRight: {fileID: 6152903036216889299, guid: 1d81df61a7524d244b95d3c143bb0a4b, type: 3}
 --- !u!1001 &6829019995998750455
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,44 +10,38 @@ public class Earthquake : BossAction
 
     private GameObject aoeDisplayGameobject;
 
-    //Redefinimos el tiempo de casteo y de la acción
-    protected new float castTime = 4;
-    protected new float actionTime = 4;
-
     protected override void displayAoe()
     {
-
+        castTime = 4;
+        actionTime = 4;
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
 
-        //Mostramos el casteo de la habilidad en la interfaz
+        //We show the castbar in the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Earthquake");
 
         GetComponent<Animator>().SetBool("idle", false);
         GetComponent<Animator>().SetBool("defy", true);
 
-        //Mientras prepara el ataque, mira constantemente al jugador
+        //Looks to the player while casting
         GetComponent<LookAtPlayer>().setIsLooking(true);
-
-        Debug.Log("Se empieza a mostrar el area de efecto");
     }
 
     protected override void doAction()
     {
-        //Al hacer el ataque, deja de mirar al jugador
+        //Stops looking at player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 
-        //Instanciamos el elemento que hace daño
+        //Trigger that deals damage to the player
         Instantiate<GameObject>(displaySphereCollider);
 
         GetComponent<Animator>().SetBool("defy", false);
         GetComponent<Animator>().SetBool("attack_03", true);
 
         Destroy(aoeDisplayGameobject);
-        Debug.Log("Se empieza a hacer la accion");
     }
 
     protected override void stopAction()
     {
-        Debug.Log("Se para la accion");
+
     }
 }

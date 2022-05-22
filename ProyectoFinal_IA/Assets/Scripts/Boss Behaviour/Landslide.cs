@@ -10,31 +10,27 @@ public class Landslide : BossAction
 
     private GameObject aoeDisplayGameobject;
 
-    //Redefinimos el tiempo de casteo y de la acción
-    protected new float castTime = 3;
-    protected new float actionTime = 3;
-
     protected override void displayAoe()
     {
-        //Creamos el area de efecto
+        castTime = 5;
+        actionTime = 5;
+
+        //We display the area of effect
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
 
-        //Mostramos el casteo de la habilidad en la interfaz
+        //We show the castbar in the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Landslide");
 
         GetComponent<Animator>().SetBool("idle", false);
         GetComponent<Animator>().SetBool("defy", true);
 
-        //Mientras prepara el ataque, mira constantemente al jugador
+        //The boss looks at the player while casting
         GetComponent<LookAtPlayer>().setIsLooking(true);
-
-        //Testing
-        Debug.Log("Se empieza a mostrar el area de efecto");
     }
 
     protected override void doAction()
     {
-        //Al hacer el ataque, deja de mirar al jugador
+        //Stops looking at the player
         GetComponent<LookAtPlayer>().setIsLooking(false);
 
         Destroy(aoeDisplayGameobject);
@@ -42,14 +38,10 @@ public class Landslide : BossAction
         GetComponent<Animator>().SetBool("defy", false);
         GetComponent<Animator>().SetBool("attack_03", true);
 
-        //Instanciamos un prefab para que el jugador no pierda vida si está dentro del mismo
         Instantiate<GameObject>(displaySphereCollider);
-
-        Debug.Log("Se empieza a hacer la accion");
     }
 
     protected override void stopAction()
     {
-        Debug.Log("Se para la accion");
     }
 }
