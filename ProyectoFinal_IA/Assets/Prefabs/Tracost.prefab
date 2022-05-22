@@ -13,6 +13,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7775945304225062815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829019995998665711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d6acac1428e7b44a05f4d0de70d658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoeDisplayPrefab: {fileID: 7193692018517315079, guid: 8620f89882cab6c4c979ee283a44ca5a, type: 3}
 --- !u!114 &-6607132902047914102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +39,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aoeDisplayPrefab: {fileID: 7193692018517315079, guid: 8620f89882cab6c4c979ee283a44ca5a, type: 3}
+--- !u!114 &-4932348011421043240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829019995998665711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabc8b87c55f7da47b3d977210ead062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &106492101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +173,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 113944, guid: b89e0c3c675d2f6468bb44ecbf17fb04, type: 3}
       propertyPath: m_Name
-      value: Bull
+      value: Tracost
       objectReference: {fileID: 0}
     - target: {fileID: 113944, guid: b89e0c3c675d2f6468bb44ecbf17fb04, type: 3}
       propertyPath: m_Layer
