@@ -66,11 +66,14 @@ public class PlayerController : MonoBehaviour
             deltaZ = 0;
         }
 
-        //Si pulsas el espacio...
-        if (Input.GetButtonDown("Jump"))
+        if (input)
         {
-            isAttacking = true;
-            GameManager.getInstance().playerAttack(3);
+            //Si pulsas el espacio...
+            if (Input.GetButtonDown("Jump"))
+            {
+                isAttacking = true;
+                GameManager.getInstance().playerAttack(3);
+            }
         }
 
         if (isAttacking)
@@ -84,6 +87,12 @@ public class PlayerController : MonoBehaviour
         }
 
         if (isAttacking && (deltaX != 0 || deltaZ != 0))
+        {
+            GameManager.getInstance().stopPlayerAttack();
+            isAttacking = false;
+        }
+
+        if(!input && isAttacking)
         {
             GameManager.getInstance().stopPlayerAttack();
             isAttacking = false;
