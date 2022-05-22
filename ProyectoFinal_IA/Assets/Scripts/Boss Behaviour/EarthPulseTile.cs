@@ -16,8 +16,8 @@ public class EarthPulseTile : MonoBehaviour
 
     private float activationTime;
 
-    private float castTime = 5;
-    private float actionTime = 5;
+    private float castTime = 2;
+    private float actionTime = 2;
 
 
     void Start()
