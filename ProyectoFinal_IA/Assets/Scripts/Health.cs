@@ -8,18 +8,24 @@ public class Health : MonoBehaviour
 
     public GameObject crown;
     public GameObject slime;
+
+    public Animator anim;
     void Start()
     {
         health = 5;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     public void loseLife(int amount)
     {
         health -= amount;
 
+        anim.SetBool("Jump", false);
+        anim.SetBool("Attack", false);
+
         GameManager.getInstance().stopPlayerAttack();
 
-        gameObject.GetComponent<Animator>().SetBool("Damage", true);
+       anim.SetBool("Damage", true);
 
         //Lo mostramos en la interfaz
         GameManager.getInstance().updatePlayerHealth(health);
