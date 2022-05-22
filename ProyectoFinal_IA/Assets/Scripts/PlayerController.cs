@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             deltaX = Input.GetAxis("Horizontal") * speed;
             deltaZ = Input.GetAxis("Vertical") * speed;
 
-            transform.Translate(deltaX, 0, deltaZ);
+            transform.Translate(deltaX*Time.deltaTime, 0, deltaZ*Time.deltaTime);
         }
         else
         {

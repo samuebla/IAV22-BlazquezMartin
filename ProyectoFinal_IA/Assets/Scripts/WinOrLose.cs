@@ -23,7 +23,7 @@ public class WinOrLose : MonoBehaviour
             else
             {
                 timer += Time.deltaTime;
-                if (timer > 2)
+                if (timer > 3)
                 {
                     SceneManager.LoadScene("WinScene");
                 }

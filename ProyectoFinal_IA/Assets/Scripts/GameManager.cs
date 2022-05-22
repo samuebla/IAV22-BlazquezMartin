@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     int enemyLife = 100;
 
-    const int PLAYERATTACKDMG = 50;
+    const int PLAYERATTACKDMG = 10;
 
     private UIManager theUIManager;
 
@@ -86,6 +86,10 @@ public class GameManager : MonoBehaviour
         theUIManager.GetComponent<UIManager>().disablePlayerProgressBar();
     }
 
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
     /// <summary>
     /// GM controls when the player loses life
     /// </summary>
