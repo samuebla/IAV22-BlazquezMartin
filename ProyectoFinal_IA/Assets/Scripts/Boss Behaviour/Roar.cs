@@ -7,22 +7,19 @@ public class Roar : BossAction
 
     private GameObject aoeDisplayGameobject;
 
-    //Redefinimos el tiempo de casteo y de la acción
-    protected new float castTime = 4;
-    protected new float actionTime = 4;
-
     protected override void displayAoe()
     {
-
+        castTime = 4;
+        actionTime = 4;
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
 
-        //Mostramos el casteo de la habilidad en la interfaz
+        //We show the castbar on the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Roar");
 
         GetComponent<Animator>().SetBool("idle", false);
         GetComponent<Animator>().SetBool("defy", true);
 
-        //Mientras prepara el ataque, mira constantemente al jugador
+        //The boss looks at the player while casting
         GetComponent<LookAtPlayer>().setIsLooking(true);
     }
 

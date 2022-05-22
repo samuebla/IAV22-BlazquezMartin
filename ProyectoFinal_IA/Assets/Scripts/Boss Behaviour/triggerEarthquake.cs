@@ -18,10 +18,9 @@ public class triggerEarthquake : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Si el jugador esta dentro...
+        //If the player is inside
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            //Recibe daño
             GameManager.getInstance().playerLoseLife(1);
         }
     }

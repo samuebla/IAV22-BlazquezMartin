@@ -20,16 +20,15 @@ public class EarthExpulsion : BossAction
     private GameObject leftRock;
     private GameObject rightRock;
 
-    //Redefinimos el tiempo de casteo y de la acción
-    protected new float castTime = 4;
-    protected new float actionTime = 4;
-
     protected override void displayAoe()
     {
+        castTime = 4;
+        actionTime = 4;
+
         aoeDisplayGameobjectLeft = Instantiate<GameObject>(aoeDisplayPrefabLeft);
         aoeDisplayGameobjectRight = Instantiate<GameObject>(aoeDisplayPrefabRight);
 
-        //Mostramos el casteo de la habilidad en la interfaz
+        //We show the cast in the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Earth Expulsion");
     }
 
@@ -38,7 +37,6 @@ public class EarthExpulsion : BossAction
         //Instanciamos el elemento que hace daño
         leftRock = Instantiate<GameObject>(leftRockPrefab);
         rightRock = Instantiate<GameObject>(rightRockPrefab);
-        //Instantiate<GameObject>(displaySphereCollider);
 
         Destroy(aoeDisplayGameobjectLeft);
         Destroy(aoeDisplayGameobjectRight);

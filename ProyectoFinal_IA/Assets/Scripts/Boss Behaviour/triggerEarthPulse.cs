@@ -18,7 +18,7 @@ public class triggerEarthPulse : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Si el jugador esta dentro...
+        //If the player is inside
         if (other.gameObject.GetComponent<PlayerController>())
         {
             GameManager.getInstance().playerLoseLife(1);
