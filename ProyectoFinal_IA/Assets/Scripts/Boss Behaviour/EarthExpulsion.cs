@@ -23,7 +23,7 @@ public class EarthExpulsion : BossAction
     protected override void displayAoe()
     {
         castTime = 4;
-        actionTime = 2;
+        actionTime = 1;
 
         aoeDisplayGameobjectLeft = Instantiate<GameObject>(aoeDisplayPrefabLeft);
         aoeDisplayGameobjectRight = Instantiate<GameObject>(aoeDisplayPrefabRight);

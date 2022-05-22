@@ -13,7 +13,7 @@ public class Landslide : BossAction
     protected override void displayAoe()
     {
         castTime = 5;
-        actionTime = 5;
+        actionTime = 1;
 
         //We display the area of effect
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);

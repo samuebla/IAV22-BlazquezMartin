@@ -14,10 +14,15 @@ public class EarthPulseTile : MonoBehaviour
     [SerializeField]
     private GameObject cubeCollider;
 
+    [SerializeField]
+    private GameObject damageIndicatorPrefab;
+
+    private GameObject damageIndicator;
+
     private float activationTime;
 
-    private float castTime = 5;
-    private float actionTime = 5;
+    private float castTime = 2;
+    private float actionTime = 0.5f;
 
 
     void Start()
@@ -41,6 +46,9 @@ public class EarthPulseTile : MonoBehaviour
                     activationTime = Time.time;
 
                     Instantiate<GameObject>(cubeCollider,this.transform.position, Quaternion.identity);
+                    damageIndicator = Instantiate<GameObject>(damageIndicatorPrefab,this.transform.position, Quaternion.identity);
+                    damageIndicator.transform.Rotate(-90, 0, 45);
+                    //damageIndicator.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                 }
 
                 break;
@@ -51,7 +59,7 @@ public class EarthPulseTile : MonoBehaviour
                     currentState = TileState.Terminated;
 
                     //Deactivate visual effect
-
+                    Destroy(damageIndicator);
                 }
 
                 break;

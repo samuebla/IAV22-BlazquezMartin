@@ -14,7 +14,7 @@ public class Earthquake : BossAction
     protected override void displayAoe()
     {
         castTime = 4;
-        actionTime = 4;
+        actionTime = 1;
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
 
         //We show the castbar in the hud
@@ -43,10 +43,13 @@ public class Earthquake : BossAction
         GetComponent<Animator>().SetBool("attack_03", true);
 
         Destroy(aoeDisplayGameobject);
+
+        aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
+        aoeDisplayGameobject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     protected override void stopAction()
     {
-
+        Destroy(aoeDisplayGameobject);
     }
 }

@@ -10,7 +10,7 @@ public class Roar : BossAction
     protected override void displayAoe()
     {
         castTime = 4;
-        actionTime = 4;
+        actionTime = 3;
         aoeDisplayGameobject = Instantiate<GameObject>(aoeDisplayPrefab);
 
         //We show the castbar on the hud
