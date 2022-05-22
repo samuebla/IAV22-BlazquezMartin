@@ -98,6 +98,9 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
         }
 
+        //EXIT
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
 
 
     }

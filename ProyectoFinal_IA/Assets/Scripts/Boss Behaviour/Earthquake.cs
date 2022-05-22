@@ -23,7 +23,7 @@ public class Earthquake : BossAction
         GetComponent<Animator>().SetBool("idle", false);
         GetComponent<Animator>().SetBool("defy", true);
 
-        
+
         //Looks to the player while casting
         GetComponent<LookAtPlayer>().setIsLooking(true);
     }
@@ -51,5 +51,11 @@ public class Earthquake : BossAction
     protected override void stopAction()
     {
         Destroy(aoeDisplayGameobject);
+    }
+
+    private void OnDisable()
+    {
+        if (aoeDisplayGameobject)
+            Destroy(aoeDisplayGameobject);
     }
 }

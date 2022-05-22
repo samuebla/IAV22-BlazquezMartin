@@ -9,6 +9,10 @@ public class LookAtPlayer : MonoBehaviour
 
     bool isLooking = false;
 
+    private void Start()
+    {
+        GameManager.getInstance().setEnemy(this.gameObject);
+    }
     void Update()
     {
         if (isLooking)

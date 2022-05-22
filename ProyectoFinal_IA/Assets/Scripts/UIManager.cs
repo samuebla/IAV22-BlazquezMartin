@@ -25,15 +25,13 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        //Para qie el GameManager tenga una referencia del UIManager
-        //y pueda solicitar actualizaciones de la UI
+        //Reference for the GameManager
         GameManager.getInstance().SetUIManager(this);
 
         for (int i = 0; i >= playerHealth.Length - 1; i--)
-            //Activamos todos los corazones
             playerHealth[i].enabled = true;
 
-        //Desactivamos todo antes de empezar
+        //ALL Disable before starting
         cancelAbility.enabled = false;
         playerProgressBar.gameObject.SetActive(false);
         enemyProgressBar.gameObject.SetActive(false);
@@ -63,12 +61,11 @@ public class UIManager : MonoBehaviour
     /// <param name="seconds"></param>
     public void enablePlayerProgressBar(float seconds)
     {
-        //Lo activamos
         playerProgressBar.gameObject.SetActive(true);
-        //Y establecemos los parametros...
+        //Set the parameters
         playerProgressBar.GetComponent<ProgressBar>().setParameters(seconds, "Attack",true);
 
-        //Si activamos  la habilidad tenemos que desactivar el texto de cancel
+        //If we attack, we have to disable the cancelText
         if (startCancel)
         {
             cancelAbility.enabled = false;
@@ -81,7 +78,7 @@ public class UIManager : MonoBehaviour
         if (playerProgressBar.gameObject.active)
         {
 
-        //Desactivamos la accion
+        //Disable action
         playerProgressBar.gameObject.SetActive(false);
 
         cancelAbility.enabled = true;
@@ -99,12 +96,17 @@ public class UIManager : MonoBehaviour
     /// <param name="seconds"></param>
     public void enableEnemyProgressBar(float seconds, string text)
     {
-        //Lo activamos
+        //Disable
         enemyProgressBar.gameObject.SetActive(true);
-        //Y establecemos los parametros...
+        //Set the parameters
         enemyProgressBar.GetComponent<ProgressBar>().setParameters(seconds, text);
     }
 
+    public void disableEnemyProgressBar()
+    {
+        //Disable
+        enemyProgressBar.gameObject.SetActive(false);
+    }
     public void updateEnemyHealth(int amount)
     {
         enemyHealth.fillAmount = (float)amount / (float)maxEnemyHealth;
@@ -115,7 +117,7 @@ public class UIManager : MonoBehaviour
             amount = 0;
 
         for (int i = playerHealth.Length - 1; i >= amount; i--)
-            //Desactivamos los corazones
+            //Disable hearts
             playerHealth[i].enabled = false;
     }
 }

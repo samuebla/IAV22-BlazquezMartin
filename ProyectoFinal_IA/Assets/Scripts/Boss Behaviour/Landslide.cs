@@ -47,4 +47,9 @@ public class Landslide : BossAction
     protected override void stopAction()
     {
     }
+    private void OnDisable()
+    {
+        if (aoeDisplayGameobject)
+            Destroy(aoeDisplayGameobject);
+    }
 }

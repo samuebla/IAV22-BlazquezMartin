@@ -49,4 +49,9 @@ public class EarthPulse : BossAction
     protected override void stopAction()
     {
     }
+    private void OnDisable()
+    {
+        if (tiles)
+            Destroy(tiles);
+    }
 }

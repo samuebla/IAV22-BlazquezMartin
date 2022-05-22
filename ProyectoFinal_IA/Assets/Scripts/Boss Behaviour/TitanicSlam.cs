@@ -53,10 +53,8 @@ public class TitanicSlam : BossAction
         //Jump
         GetComponent<Animator>().SetBool("jump", true);
 
-        playerRef.GetComponent<Rigidbody>().AddForce((playerRef.transform.position- jumpPosition).normalized * 1250);
 
-        //Block input until it finished
-        playerRef.GetComponent<PlayerController>().blockInput();
+
         Destroy(aoeDisplayGameobject);
     }
 
@@ -68,6 +66,11 @@ public class TitanicSlam : BossAction
             transform.Translate(jumpPosition.normalized * Time.deltaTime * 20,Space.World);
             if (transform.position.magnitude > jumpPosition.magnitude)
             {
+                playerRef.GetComponent<Rigidbody>().AddForce((playerRef.transform.position - jumpPosition).normalized * 1250);
+
+                //Block input until it finished
+                playerRef.GetComponent<PlayerController>().blockInput();
+
                 startMoving = false;
                 goingToCenter = true;
                 GetComponent<Animator>().SetBool("jump", false);
@@ -92,5 +95,11 @@ public class TitanicSlam : BossAction
     protected override void stopAction()
     {
         playerRef.GetComponent<PlayerController>().allowInput();
+    }
+
+    private void OnDisable()
+    {
+        if (aoeDisplayGameobject)
+            Destroy(aoeDisplayGameobject);
     }
 }

@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //Vida del enemigo
     int enemyLife = 100;
 
-    const int PLAYERATTACKDMG = 5;
-
-    bool win;
+    const int PLAYERATTACKDMG = 50;
 
     private UIManager theUIManager;
 
     private GameObject player;
+    private GameObject enemy;
 
     private static GameManager instance;
     void Awake()
@@ -25,7 +23,6 @@ public class GameManager : MonoBehaviour
             Destroy(this);
     }
 
-
     public static GameManager getInstance()
     {
         return instance;
@@ -35,15 +32,87 @@ public class GameManager : MonoBehaviour
     {
         player = player_;
     }
-
+    public void setEnemy(GameObject enemy_)
+    {
+        enemy = enemy_;
+    }
     public void SetUIManager(UIManager uim)
     {
         theUIManager = uim;
     }
 
-    private void Start()
+    public void enemyRecieveDamage(int amount)
     {
-        win = false;
+        player.GetComponent<Animator>().SetBool("Jump", true);
+        enemyLife -= amount;
+        
+        theUIManager.GetComponent<UIManager>().updateEnemyHealth(enemyLife);
+
+        //If he died...
+        if (enemyLife <= 0)
+        {
+            //Set the die animation
+            Animator anim = enemy.GetComponent<Animator>();
+            anim.SetBool("idle", false);
+            anim.SetBool("walk", false);
+            anim.SetBool("jump", false);
+            anim.SetBool("defy", false);
+            anim.SetBool("die", true);
+
+            //Disable all attacks
+            enemy.GetComponent<Earthquake>().enabled = false;
+            enemy.GetComponent<Landslide>().enabled = false;
+            enemy.GetComponent<EarthPulse>().enabled = false;
+            enemy.GetComponent<TitanicSlam>().enabled = false;
+            enemy.GetComponent<TitanicRoar>().enabled = false;
+            enemy.GetComponent<LookAtPlayer>().enabled = false;
+            
+            //Disable the progress bar
+            theUIManager.GetComponent<UIManager>().disableEnemyProgressBar();
+
+            //Block Input
+            player.GetComponent<PlayerController>().blockInput();
+            winGame();
+        }
+    }
+
+    public void playerAttack(float seconds)
+    {
+        theUIManager.GetComponent<UIManager>().enablePlayerProgressBar(seconds);
+    }
+
+    public void stopPlayerAttack()
+    {
+        theUIManager.GetComponent<UIManager>().disablePlayerProgressBar();
+    }
+
+    /// <summary>
+    /// GM controls when the player loses life
+    /// </summary>
+    /// <param name="amount"></param>
+    public void playerLoseLife(int amount)
+    {
+        player.GetComponent<Health>().loseLife(amount);
+    }
+
+    public void updatePlayerHealth(int amount)
+    {
+        theUIManager.GetComponent<UIManager>().updatePlayerHealth(amount);
+    }
+
+    public void buttonResetLevel()
+    {
+        SceneManager.LoadScene("FinalScene");
+    }
+
+    /// <summary>
+    /// Enable the enemy progress bar
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <param name="text"></param>
+    public void startEnemyAbility(float seconds, string text)
+    {
+        theUIManager.GetComponent<UIManager>().enableEnemyProgressBar(seconds, text);
     }
 
     public int getPlayerDmg()
@@ -51,70 +120,13 @@ public class GameManager : MonoBehaviour
         return PLAYERATTACKDMG;
     }
 
-
-
-public void loseGame()
-{
-    Debug.Log("Perdiste weyu");
-}
-
-public void winGame()
-{
-    Debug.Log("Ganamos Yey");
-}
-
-public void enemyRecieveDamage(int amount)
-{
-        player.GetComponent<Animator>().SetBool("Jump", true);
-    enemyLife -= amount;
-    //Lo mostramos en la interfaz
-    theUIManager.GetComponent<UIManager>().updateEnemyHealth(enemyLife);
-
-    //Si has ganado...
-    if (enemyLife <= 0)
+    public void loseGame()
     {
-        win = true;
-        winGame();
+        Debug.Log("Perdiste weyu");
     }
-}
 
-public void playerAttack(float seconds)
-{
-    theUIManager.GetComponent<UIManager>().enablePlayerProgressBar(seconds);
-}
-
-public void stopPlayerAttack()
-{
-    //Y lo mostramos en la interfaz
-    theUIManager.GetComponent<UIManager>().disablePlayerProgressBar();
-}
-
-/// <summary>
-/// El GM controla cuando el jugador pierde vida por culpa del enemigo
-/// </summary>
-/// <param name="amount"></param>
-public void playerLoseLife(int amount)
-{
-    player.GetComponent<Health>().loseLife(amount);
-}
-
-public void updatePlayerHealth(int amount)
-{
-    theUIManager.GetComponent<UIManager>().updatePlayerHealth(amount);
-}
-
-public void buttonResetLevel()
-{
-    SceneManager.LoadScene("FinalScene");
-}
-
-/// <summary>
-/// Con este metodo mostramos en la interfaz el casteo de la habilidad del boss
-/// </summary>
-/// <param name="seconds"></param>
-/// <param name="text"></param>
-public void startEnemyAbility(float seconds, string text)
-{
-    theUIManager.GetComponent<UIManager>().enableEnemyProgressBar(seconds, text);
-}
+    public void winGame()
+    {
+        Debug.Log("Ganamos Yey");
+    }
 }
