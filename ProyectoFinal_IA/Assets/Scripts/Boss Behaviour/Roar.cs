@@ -35,7 +35,7 @@ public class Roar : BossAction
 
         //Player collision check
         RaycastHit hit;
-        if (!(Physics.Raycast(transform.position, (GetComponent<LookAtPlayer>().getPlayerPosition() - transform.position).normalized, out hit, Mathf.Infinity, layerMask)))
+        if ((Physics.Raycast(transform.position + new Vector3(0, 2, 0), ((GetComponent<LookAtPlayer>().getPlayerPosition() + new Vector3(0, 0.5f, 0)) - (transform.position + new Vector3(0, 2, 0))).normalized * 100, out hit, Mathf.Infinity, layerMask)))
             GameManager.getInstance().playerLoseLife(1);
 
         GetComponent<EarthExpulsion>().doDamageToRocks();
