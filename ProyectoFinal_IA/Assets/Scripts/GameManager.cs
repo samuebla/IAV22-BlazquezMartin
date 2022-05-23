@@ -62,7 +62,10 @@ public class GameManager : MonoBehaviour
             //Disable all attacks
             enemy.GetComponent<Earthquake>().enabled = false;
             enemy.GetComponent<Landslide>().enabled = false;
+            enemy.GetComponent<Roar>().enabled = false;
+            enemy.GetComponent<Rockbuster>().enabled = false;
             enemy.GetComponent<EarthPulse>().enabled = false;
+            enemy.GetComponent<EarthExpulsion>().enabled = false;
             enemy.GetComponent<TitanicSlam>().enabled = false;
             enemy.GetComponent<TitanicRoar>().enabled = false;
             enemy.GetComponent<LookAtPlayer>().enabled = false;

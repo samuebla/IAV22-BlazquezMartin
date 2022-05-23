@@ -28,12 +28,19 @@ public class EarthExpulsion : BossAction
         aoeDisplayGameobjectLeft = Instantiate<GameObject>(aoeDisplayPrefabLeft);
         aoeDisplayGameobjectRight = Instantiate<GameObject>(aoeDisplayPrefabRight);
 
+
+        //Looks to the player while casting
+        GetComponent<LookAtPlayer>().setIsLooking(true);
+
         //We show the cast in the hud
         GameManager.getInstance().startEnemyAbility(castTime, "Earth Expulsion");
     }
 
     protected override void doAction()
     {
+        //Stops looking at player
+        GetComponent<LookAtPlayer>().setIsLooking(false);
+
         //Instanciamos el elemento que hace daño
         leftRock = Instantiate<GameObject>(leftRockPrefab);
         rightRock = Instantiate<GameObject>(rightRockPrefab);

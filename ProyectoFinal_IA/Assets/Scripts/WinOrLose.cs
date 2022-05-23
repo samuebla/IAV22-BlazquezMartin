@@ -19,13 +19,19 @@ public class WinOrLose : MonoBehaviour
         if (start)
         {
             if (!win)
+            {
                 SceneManager.LoadScene("LooseScene");
+                Cursor.lockState = CursorLockMode.None;
+
+            }
             else
             {
                 timer += Time.deltaTime;
                 if (timer > 3)
                 {
                     SceneManager.LoadScene("WinScene");
+                    Cursor.lockState = CursorLockMode.None;
+
                 }
             }
 
