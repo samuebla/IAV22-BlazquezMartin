@@ -2,6 +2,8 @@
 
 # Tracost the Bull
 
+Enlace al video con las pruebas: https://www.youtube.com/watch?v=GkhsaKt52Zo
+
 La idea descrita va a ser desarrollada por un grupo de dos integrantes: Samuel Blázquez Martín y Miguel Hernández García.
 
 Partiremos de un proyecto de Unity en blanco y desarrollaremos a partir de ahí una batalla de jefe final.
