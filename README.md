@@ -16,13 +16,17 @@ Ambos integrantes se encargarán del desarrollo de la máquina de estados y acci
 
 # Descripción en detalle de la solución a implementar
 
-- Escena en vista top-down con un escenario en forma de cuadrado. Si el jugador toca los bordes de la arena, muere.
+A) Escena en vista perspectiva 3D en 3ª persona con un escenario en forma de cuadrado. Camara con movimiento horizontal y zoom.
 
-- Jugador con movimiento mediante WASD sin posibilidad de salto. El jugador podrá moverse con libertad por el escenario a una velocidad fija. También podrá atacar al Boss presente en la sala pulsando la Barra Espaciadora. En el momento en el que el jugador pulse la barra espaciadora deberá de quedarse quieto durante 2 segundos o el ataque se cancelará. Si el jugador ha esperado 2 segundos después de pulsar l Barra espaciadora se instanciará una flecha que se dirigirá hacia el Boss esté donde esté y le hará daño.
+B) Delimitar la zona con un muro de fuego que haga insta-kill.
 
-- Boss con un árbol implementado en Bolt que realizará un patrón de ataques en orden con ciertas variaciones.
+C) Jugador con movimiento mediante WASD sin posibilidad de salto. El jugador podrá moverse con libertad por el escenario a una velocidad fija. También podrá atacar al Boss presente en la sala pulsando la Barra Espaciadora. En el momento en el que el jugador pulse la barra espaciadora deberá de quedarse quieto durante 3 segundos o el ataque se cancelará. Si el jugador ha esperado 3 segundos después de pulsar la Barra espaciadora le hará daño, reflejándose en la interfaz.
 
-El Boss realizará siempre los mismos ataques en el mismo orden, sin embargo algunos ataques tendrán variaciones diferentes que cambiarán significativamente su funcionamiento. El jugador deberá de identificar a tiempo el tipo de ataque para evitar recibir daño. Antes de realizar un ataque el nombre del ataque será mostrado en pantalla junto a una barra de progreso. Cuando la barra de progreso finalice el ataque será realizado. Algunos ataques durante este tiempo mostrarán también un indicador visual en el mapa para ayudar al jugador a identificar las zonas donde ese ataque impactará.
+D) Interfaz que muestre todo lo mencionado, desde las vidas del jugador y el bos, hasta las barras de casteo de ambos
+
+E) Creación de Boss e implementación de una maquina de estados en Bolt que realizará un patrón de ataques en orden con ciertas variaciones. Las habilidades del Boss se especificarán más adelante
+
+F) El Boss realizará siempre los mismos ataques en el mismo orden, sin embargo algunos ataques tendrán variaciones diferentes que cambiarán significativamente su funcionamiento. El jugador deberá de identificar a tiempo el tipo de ataque para evitar recibir daño. Antes de realizar un ataque el nombre del ataque será mostrado en pantalla junto a una barra de progreso. Cuando la barra de progreso finalice el ataque será realizado. Todos los ataques durante este tiempo mostrarán también un indicador visual en el mapa para ayudar al jugador a identificar las zonas donde ese ataque impactará.
 
 El jugador puede recibir un total de 4 golpes durante la partida, al quinto golpe morirá y tendrá que empezar de nuevo.
 

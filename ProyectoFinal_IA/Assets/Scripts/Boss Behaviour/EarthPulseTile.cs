@@ -24,7 +24,7 @@ public class EarthPulseTile : MonoBehaviour
     private float castTime = 2;
     private float actionTime = 0.5f;
 
-
+    private float timeBeforeNextActivation = 5;
     void Start()
     {
         collider = gameObject.GetComponent<BoxCollider>();
@@ -58,8 +58,18 @@ public class EarthPulseTile : MonoBehaviour
                 {
                     currentState = TileState.Terminated;
 
+                    activationTime = Time.time;
+
                     //Deactivate visual effect
                     Destroy(damageIndicator);
+                }
+
+                break;
+
+            case TileState.Terminated:
+                if (activationTime + timeBeforeNextActivation <= Time.time)
+                {
+                    currentState = TileState.NotActive;
                 }
 
                 break;
